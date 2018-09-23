@@ -1,119 +1,77 @@
-//--------------ENGINE--(RENDER--KEYLISTENER--MAPSCROLLING)----------//
+//--------------ENGINE--(RENDER--CAMERA--MAPSCROLLING)----------//
 
 
-function render(){
+
+function render(objects){
   for(var i = 0; i < objects.length; i++){
     objects[i].draw();
   }
-  player.draw();
+  player.draw(); //TODO debag: player dont draw without this string from the Camera.focusOn
 }
 
-function keyListener(obj){
-  window.onmousemove = function(e){
-    this.x = e.offsetX==undefined?e.layerX:e.offsetX-obj.width/2;
-    this.y = e.offsetY==undefined?e.layerY:e.offsetY-obj.height/2;
-
-    this.BCLen = Math.abs(this.x-obj.x);
-    this.ACLen = Math.abs(this.y-obj.y);
-    if(this.x>obj.x & this.y<obj.y){obj.beta = (Math.atan(this.BCLen/this.ACLen)*180)/Math.PI;}    //первая четверь
-    else if(this.x<obj.x & this.y<obj.y){obj.beta = 90 - Math.atan(this.BCLen/this.ACLen)*180/Math.PI + 270 ;}   //вторая четверть
-    else if(this.x<obj.x & this.y>obj.y){obj.beta = Math.atan(this.BCLen/this.ACLen)*180/Math.PI + 180;}   //третья четверть
-    else if(this.x>obj.x & this.y>obj.y){obj.beta = 90 - Math.atan(this.BCLen/this.ACLen)*180/Math.PI + 90;}   //четвёртая четверть
-    console.log(this.x, this.y, this.BCLen, this.ACLen, obj.beta);
-  }
-  window.onkeydown = function(e){
-    switch(e.keyCode){
-      case 37, 65:    //'a' '<-'
-        obj.side.left = true;
-        obj.side.right = false;
-      break;
-      case 38, 87:    //'w' '/\'
-        obj.side.up = true;
-        obj.side.down = false;
-      break;
-      case 39, 68:    //'d' '->'
-        obj.side.right = true;
-        obj.side.left = false;
-      break;
-      case 40, 83:    //'s' '\/'
-        obj.side.down = true;
-        obj.side.up = false;
-      break;
-      case 16:  //shift - speedboost
-        obj.speed += obj.speedBoost;
-      break;
-    }
-  }
-  window.onkeyup = function(e){
-    switch(e.keyCode){
-      case 37, 65:
-        obj.side.left = false;
-      break;
-      case 38, 87:
-        obj.side.up = false;
-      break;
-      case 39, 68:
-        obj.side.right = false;
-      break;
-      case 40, 83:
-        obj.side.down = false;
-      break;
-      case 16:
-        obj.speed-= obj.speedBoost;
-      break;
-      case 32:
-        jump = false;
-      break;
-    }
-  }
-}
 
 class Camera{
-  constructor(){
-    this.x;
-    this.y;
-    this.speed;
+  constructor(x = canvas.width/2, y = canvas.height/2, speed = 1, safetyMode = true){
+    this.x = x
+    this.y = y
+    this.speed = speed;
     this.mode;
+    this.focus;
+    this.safetyMode = safetyMode;
+
+    console.log("Camera set up")
+    console.log("*Camera* x: " + this.x + ", y: " + this.y + ", speed: " + this.speed + ", safetyMode: " + this.safetyMode)
   }
 
-  //TODO this is the old mapScrolling func; add more arguments
+
   focusOn(obj){
-    //OLD MAPSCROLLING
+    this.mode = "focusOn";
+    this.focus = obj;
+    objectsScrolling.splice(objectsScrolling.indexOf(obj), 1);
+    this.x = obj.x; this. y = obj.y;
   }
 
-  //TODO control the camera from keyListener
-  freeWalk(){
 
+  freeWalk(controlKeys = {left:65, right:68, up:87, down:83}){
+    if(this.focus) objectsScrolling.push(this.focus);
+    this.focus = undefined;
+    this.mode = "freeWalk";
+
+    if(isElemInArr(keyListener_downKeys, controlKeys.left)) mapScrolling(objectsScrolling, "x", this.speed, this.safetyMode);
+    if(isElemInArr(keyListener_downKeys, controlKeys.right)) mapScrolling(objectsScrolling, "x", -this.speed, this.safetyMode);
+    if(isElemInArr(keyListener_downKeys, controlKeys.up)) mapScrolling(objectsScrolling, "y", this.speed, this.safetyMode);
+    if(isElemInArr(keyListener_downKeys, controlKeys.down)) mapScrolling(objectsScrolling, "y", -this.speed, this.safetyMode);
   }
 
-  //TODO moving camera to input coordinates
-  goToCoord(){
-    
-  }
 
+  goToCoord(x, y){
+    if(this.focus) objectsScrolling.push(this.focus);
+    this.focus = undefined;
+    this.mode = "goToCoord";
+    var deltaX = this.x - x; this.x = deltaX;
+    var deltaY = this.y - y; this.y = deltaY;
+    mapScrolling(objectsScrolling, 'x', deltaX, this.safetyMode);
+    mapScrolling(objectsScrolling, 'y', deltaY, this.safetyMode);
+  }
 }
 
 
-function mapScrolling(obj){
-  if(obj.side.up == true ){
-    for(var i = 0; i < objects.length; i++){
-        objects[i].y += obj.speed;
+function mapScrolling(objects, sideScroll, interval, fieldsCheck = true){
+  if(fieldsCheck){
+    for(var obj = 0; obj < objects.length; ++obj){
+      if(!objects[obj].x == undefined && !objects[obj].y == undefined){
+        console.log("Object:" + obj + " dont have an 'x' or 'y' field");
+        return false;
+      }
     }
   }
-  if(obj.side.down == true ){
-    for(var i = 0; i < objects.length; i++){
-        objects[i].y -= obj.speed;
-    }
-  }
-  if(obj.side.left == true ){
-    for(var i = 0; i < objects.length; i++){
-        objects[i].x += obj.speed;
-    }
-  }
-  if(obj.side.right == true){
-    for(var i = 0; i < objects.length; i++){
-        objects[i].x -= obj.speed;
+
+  for(var obj = 0; obj < objects.length; ++obj){
+    switch(sideScroll){
+      case "x": objects[obj].x += interval; break;
+      case "y": objects[obj].y += interval; break;
     }
   }
 }
-//^^^^^^^^^^^^^^ENGINE--(RENDER--KEYLISTENER--MAPSCROLLING!)^^^^^^^^^^//
+
+//^^^^^^^^^^^^^^ENGINE--(RENDER--CAMERA--MAPSCROLLING!)^^^^^^^^^^//
