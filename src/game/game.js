@@ -9,7 +9,9 @@ var player;
 var enemy;
 var background;
 
-
+//// TODO: transfer to engine
+const FPS = 30;
+const FRAMETIME = getFrameTimeForFPS(FPS);
 
 //^^^^^^^^^^^^^^^^^^^^^^^DECLARATIONS^^^^^^^^^^^^^^^^^^^^^//
 
@@ -27,24 +29,41 @@ function init(){
   objectsRender = objectsMap;
   objectsScrolling = objectsMap;
 
-
-  game();       //игровой цикл
+  gameLoop();       //игровой цикл
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^DIFINITION^^^^^^^^^^^^^^^^^^^^^^//
+
+async function gameLoop(){
+  while(true){
+    game();
+    await sleep(FRAMETIME);
+  }
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 //-----GAMELOOP-----//
 function game(){
   screen.clearRect(0, 0, canvas.width, canvas.height);
+
 
   render(objectsRender);
   player.move();
   enemy.process();
   camera.focusOn(player);
 
+
   //\/\/\/TEST\/\/\/
+  //console.log(player.state)
   //console.log(keyListener_downKeys);
   //console.log(window.mouseDown_x +" : "+ window.mouseDown_y + "   r: " + window.mouseDown_button["right"] + " m:" + window.mouseDown_button["middle"] + " l:" + window.mouseDown_button["left"])
   //console.log(window.mouseCanvasPosition_x + " : " + window.mouseCanvasPosition_y);
 
-  requestAnimationFrame(game);  //ограничивает fps
+}
+
+
+function getFrameTimeForFPS(fps){
+  return (1000/fps);
 }
