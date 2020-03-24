@@ -1,12 +1,12 @@
 class Camera{
-    constructor(x = canvas.width/2, y = canvas.height/2, speed = 1, safetyMode = true){
+    constructor(x = canvas.width/2, y = canvas.height/2, speed = 1){
       this.x = x
       this.y = y
       this.speed = speed;
       this.mode;
       this.focus;
-      this.safetyMode = safetyMode;
 
+      console.log(canvas)
       console.log("Camera set up")
       console.log("*Camera* x: " + this.x + ", y: " + this.y + ", speed: " + this.speed + ", safetyMode: " + this.safetyMode)
     }
@@ -18,8 +18,8 @@ class Camera{
 
       this.deltaX = canvas.width/2 - obj.width/2- obj.x;
       this.deltaY = canvas.height/2 - obj.height/2 - obj.y;
-      mapScrolling(objectsScrolling, "x", this.deltaX, false);
-      mapScrolling(objectsScrolling, "y", this.deltaY, false);
+      mapScrolling(SCENE.objectsGroup, "x", this.deltaX, false);
+      mapScrolling(SCENE.objectsGroup, "y", this.deltaY, false);
 
       if(this.focus != obj){
         this.focus = obj;

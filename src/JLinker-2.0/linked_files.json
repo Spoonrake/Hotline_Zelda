@@ -13,12 +13,12 @@
 	"ZelObject": "../engine/Object/ZelObject.js",
 	"Scene": "../engine/Scene.js",
 
-	"Test Level": "../game/Levels/LevelTest.js",
-
 	"Object_Enemy": "../game/Objects/Units/Enemy.js",
 	"Object_Player": "../game/Objects/Player/Player.js",
 	"Object_Background": "../game/Objects/Structs/Background.js",
 	
 	"Init": "../game/Init.js",
-	"Logic": "../game/GameLogic.js"
+	"Logic": "../game/GameLogic.js",
+
+	"Test Level": "../game/Levels/LevelTest.js"
 }
