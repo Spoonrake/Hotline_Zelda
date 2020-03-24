@@ -14,7 +14,7 @@ class Enemy{
   }
 
   process(){
-    if(hasCollisionComplex(player, this))
+    if(hasCollisionComplex(PLAYER, this))
       this.swapToSprite("./img/enemyRed.jpg")
     else
       this.swapToSprite("./img/enemy.jpg")
