@@ -4,13 +4,9 @@
 
 	"Render": "../engine/Render.js",
 	"Camera": "../engine/Camera.js",
-	"Core": "../engine/Core.js",
 	"MacSroller": "../engine/MapScroller.js",
 	"Collisions": "../engine/Collisions.js",
 	"BufferSys": "../engine/BufferSystem.js",
-
-	"Tools_Input": "../engine/Tools/InputTools.js",
-	"Tools": "../engine/Tools/Tools.js",
 
 	"Phisycal obj": "../engine/Object/Phisycal.js",
 	"Drawable obj": "../engine/Object/Drawable.js",
@@ -22,8 +18,7 @@
 	"Object_Enemy": "../game/Objects/Units/Enemy.js",
 	"Object_Player": "../game/Objects/Player/Player.js",
 	"Object_Background": "../game/Objects/Structs/Background.js",
-
+	
 	"Init": "../game/Init.js",
-	"Logic": "../game/GameLogic.js",
-	"Game": "../game/game.js"
+	"Logic": "../game/GameLogic.js"
 }
