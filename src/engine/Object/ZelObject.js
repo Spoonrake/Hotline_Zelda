@@ -1,6 +1,6 @@
-class GameObj extends Drawable{
-  constructor(imagePath){
-    super(imagePath)
+class ZelObject extends Drawable{
+  constructor(){
+    super()
   }
 
 

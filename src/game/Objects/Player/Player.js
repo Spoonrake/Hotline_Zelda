@@ -1,12 +1,12 @@
 //------CLASS PLAYER-------//
-class Player extends Drawable{
+class Player extends ZelObject{
 
   constructor(x, y){    //x,y - started coordinates
     super();
     this.x = x;
     this.y = y;
-    this.width = 50;
-    this.height = 50;
+    this.width = 128;
+    this.height = 128;
     this.speed = 10;
 
     this.animationMap = {

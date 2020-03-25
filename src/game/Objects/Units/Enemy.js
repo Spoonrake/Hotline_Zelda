@@ -1,20 +1,21 @@
-class Enemy{
+class Enemy extends ZelObject{
   constructor(){
+    super()
     this.x = 500;
     this.y = 300;
-    this.width = 25;
-    this.height = 25;
+    this.width = 50;
+    this.height = 50;
 
     this.sprite = new Image();
     this.sprite.src = "./img/enemy.jpg";
   }
 
   draw(){
-    screen.drawImage(this.sprite, 0, 0, 50, 50, this.x, this.y, 50, 50);
+    screen.drawImage(this.sprite, 0, 0, 25, 25, this.x, this.y, 50, 50);
   }
 
   process(){
-    if(hasCollisionComplex(PLAYER, this))
+    if(this.hasCollisionWithObj(PLAYER))
       this.swapToSprite("./img/enemyRed.jpg")
     else
       this.swapToSprite("./img/enemy.jpg")

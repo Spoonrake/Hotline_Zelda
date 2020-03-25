@@ -8,7 +8,7 @@
 	"Collisions": "../engine/Collisions.js",
 	"BufferSys": "../engine/BufferSystem.js",
 
-	"Phisycal obj": "../engine/Object/Phisycal.js",
+	"Phisycal obj": "../engine/Object/Physical.js",
 	"Drawable obj": "../engine/Object/Drawable.js",
 	"ZelObject": "../engine/Object/ZelObject.js",
 	"Scene": "../engine/Scene.js",

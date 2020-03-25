@@ -1,5 +1,5 @@
 //TODO make if smaller
-class Phisycal{
+class Physical{
   constructor(){
     this.x;
     this.y;
