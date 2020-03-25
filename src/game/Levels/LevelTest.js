@@ -1,5 +1,3 @@
-SCENE = new Scene()
-
 function loadLevelTest(){
   SCENE.addObject(BACKGROUND = new Background(0, 0, "./img/bg.jpg"));
   SCENE.addObject(ENEMY = new Enemy());

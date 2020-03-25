@@ -22,6 +22,7 @@ var gameFlag = true;
 function init(){
   canvasAndScreenDifintion()
   CAMERA = new Camera()
+  SCENE = new Scene()
   loadStartLevel()
   gameLoop()       //игровой цикл
 }
