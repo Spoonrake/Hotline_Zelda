@@ -20,8 +20,7 @@ var gameFlag = true;
 
 
 function init(){
-  canvas = document.getElementById("canvas") //конвенция
-  screen = canvas.getContext("2d")
+  canvasAndScreenDifintion()
   CAMERA = new Camera()
   loadStartLevel()
   gameLoop()       //игровой цикл
@@ -30,6 +29,8 @@ function init(){
 
 
 function canvasAndScreenDifintion(){
+  canvas = document.getElementById("canvas") //конвенция
+  screen = canvas.getContext("2d")
 }
 
 
