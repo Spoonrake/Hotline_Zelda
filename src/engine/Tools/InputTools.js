@@ -74,19 +74,4 @@ function mouseDown(event){
 
 //^^^^^^^^^^^^^^^^^^^^^^^^^MOUSE LISTENER^^^^^^^^^^^^^^^^^^^^^^^^^//
 
-
-// prototype of method. roll object to cursor side
-function rollToMouse(obj){
-  window.onmousemove = function(e){
-    this.x = e.offsetX==undefined?e.layerX:e.offsetX-obj.width/2;
-    this.y = e.offsetY==undefined?e.layerY:e.offsetY-obj.height/2;
-
-    this.BCLen = Math.abs(this.x-obj.x);
-    this.ACLen = Math.abs(this.y-obj.y);
-    if(this.x>obj.x & this.y<obj.y){obj.beta = (Math.atan(this.BCLen/this.ACLen)*180)/Math.PI;}    //первая четверь
-    else if(this.x<obj.x & this.y<obj.y){obj.beta = 90 - Math.atan(this.BCLen/this.ACLen)*180/Math.PI + 270 ;}   //вторая четверть
-    else if(this.x<obj.x & this.y>obj.y){obj.beta = Math.atan(this.BCLen/this.ACLen)*180/Math.PI + 180;}   //третья четверть
-    else if(this.x>obj.x & this.y>obj.y){obj.beta = 90 - Math.atan(this.BCLen/this.ACLen)*180/Math.PI + 90;}   //четвёртая четверть
-    console.log(this.x, this.y, this.BCLen, this.ACLen, obj.beta);
-  }
 }
