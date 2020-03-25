@@ -12,6 +12,17 @@ function keyListener(event){
     keyListener_downKeys.splice(keyListener_downKeys.indexOf(event.keyCode), 1);
   }
 }
+
+
+
+function getLastDownedKey(){
+  this.lastDownedKey;
+  window.onkeydown = function(e){
+      this.lastDownedKey = e.keyCode
+  }
+  return this.lastDownedKey
+}
+
 //^^^^^^^^^^^^^^^^^^^^^^^KEYBOARD LISTENER^^^^^^^^^^^^^^^^^^^^^^^//
 
 
