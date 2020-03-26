@@ -5,8 +5,6 @@
 	"Render": "../engine/Render.js",
 	"Camera": "../engine/Camera.js",
 	"MacSroller": "../engine/MapScroller.js",
-	"Collisions": "../engine/Collisions.js",
-	"BufferSys": "../engine/BufferSystem.js",
 
 	"Phisycal obj": "../engine/Object/Physical.js",
 	"Drawable obj": "../engine/Object/Drawable.js",
