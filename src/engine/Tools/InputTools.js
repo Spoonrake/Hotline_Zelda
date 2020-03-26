@@ -30,12 +30,13 @@ function getLastDownedKey(){
 
 //-------------------------MOUSE LISTENER-----------------------//
 
-//MOUSEPOSITIONS
+document.addEventListener('mousedown', mouseDownListener);
+document.addEventListener('mouseup', mouseDownListener);
+document.addEventListener('mousemove', mouseMoveListener)
 
+//----MOUSECOORDS----
 var mouseX = 0;
 var mouseY = 0;
-
-document.addEventListener('mousemove', mouseMoveListener)
 
 function mouseMoveListener(e){
      if(event.target == canvas){
@@ -44,23 +45,31 @@ function mouseMoveListener(e){
      }
 }
 
-//MOUSEDOWN
-document.addEventListener('mousedown', mouseDown);
-var mouseDown_x = mouseDown_y = 0;
-var mouseDown_button =  {
-  "left":false,
-  "middle":false,
-  "right":false};
-function mouseDown(event){
-  if(event.type == 'mousedown'){
-    mouseDown_x = mouseCanvasPosition_x;
-    mouseDown_y = mouseCanvasPosition_y;
-    if(event.button & 0) mouseDown_button.right = true;
-    if(event.button & 1) mouseDown_button.middle = true;
-    if(event.button & 2) mouseDown_button.left = true;
-  }
+
+function getMouseX(){
+     return mouseX
 }
 
+function getMouseY(){
+     return mouseY
+}
+
+//-----MOUSEDOWN-----
+var mouseDown = false;
+
+function mouseDownListener(e){
+     if(event.type == 'mousedown'){
+          mouseDown = true
+     }
+     if(event.type == 'mouseup'){
+          mouseDown = false
+     }
+}
+
+
+function isMouseDown(){
+     return mouseDown
+}
 //^^^^^^^^^^^^^^^^^^^^^^^^^MOUSE LISTENER^^^^^^^^^^^^^^^^^^^^^^^^^//
 
 }
