@@ -5,8 +5,9 @@ document.addEventListener('keyup', keyListener);
 keyListener_downKeys = [];
 
 function keyListener(event){
-  if(event.type == 'keydown'){
-    if (!isElemInArr(keyListener_downKeys, event.keyCode)) keyListener_downKeys.push(event.keyCode);
+if(event.type == 'keydown'){
+  if (!isElemInArr(keyListener_downKeys, event.keyCode)) 
+    keyListener_downKeys.push(event.keyCode);
   }
   else{
     keyListener_downKeys.splice(keyListener_downKeys.indexOf(event.keyCode), 1);
@@ -31,29 +32,17 @@ function getLastDownedKey(){
 
 //MOUSEPOSITIONS
 
-document.addEventListener('mousemove', mousePagePosition);
-var mousePagePosition_x = mousePagePosition_y = 0;
-function mousePagePosition(event){
-  if(event.type == 'mousemove'){
-    mousePagePosition_x = event.clientX;
-    mousePagePosition_y = event.clientY;
-  }
-}
+var mouseX = 0;
+var mouseY = 0;
 
-document.addEventListener('mousemove', mouseCanvasPosition);
-var mouseCanvasPosition_x = mouseCanvasPosition_y = 0;
-function mouseCanvasPosition(event){
-  if(event.type == 'mousemove'){
-    if(event.target == canvas){
-      mouseCanvasPosition_x = event.pageX - event.target.offsetLeft,
-      mouseCanvasPosition_y = event.pageY - event.target.offsetTop;
-    }else{
-      mouseCanvasPosition_x = undefined;
-      mouseCanvasPosition_y = undefined;
-    }
-  }
-}
+document.addEventListener('mousemove', mouseMoveListener)
 
+function mouseMoveListener(e){
+     if(event.target == canvas){
+          mouseX = event.clientX - event.target.offsetLeft
+          mouseY = event.clientY - event.target.offsetTop;
+     }
+}
 
 //MOUSEDOWN
 document.addEventListener('mousedown', mouseDown);
