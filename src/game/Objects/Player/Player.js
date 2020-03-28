@@ -20,19 +20,19 @@ class Player extends ZelObject{
   }
 
   move(controlKeys = {left:65, right:68, up:87, down:83}){
-    if(isElemInArr(controlKeys.left, DOWNKEYS)){
+    if(isElemInArr(controlKeys.left, getDownedKeys())){
       this.runLeft();
     }
-    if(isElemInArr(controlKeys.right, DOWNKEYS)){
+    if(isElemInArr(controlKeys.right, getDownedKeys())){
       this.runRight();
     }
-    if(isElemInArr(controlKeys.up, DOWNKEYS)){
+    if(isElemInArr(controlKeys.up, getDownedKeys())){
       this.runTop();
     }
-    if(isElemInArr(controlKeys.down, DOWNKEYS)){
+    if(isElemInArr(controlKeys.down, getDownedKeys())){
       this.runBottom();
     }
-    if(DOWNKEYS.length == 0){
+    if(getDownedKeys().length == 0){
       this.stay();
     }
   }

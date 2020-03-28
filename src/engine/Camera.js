@@ -32,10 +32,10 @@ class Camera{
       this.focus = undefined;
       this.mode = "freeWalk";
 
-      if(isElemInArr(controlKeys.left, DOWNKEYS)) mapScrolling(objectsScrolling, "x", this.speed, this.safetyMode);
-      if(isElemInArr(controlKeys.right, DOWNKEYS)) mapScrolling(objectsScrolling, "x", -this.speed, this.safetyMode);
-      if(isElemInArr(controlKeys.up, DOWNKEYS)) mapScrolling(objectsScrolling, "y", this.speed, this.safetyMode);
-      if(isElemInArr(controlKeys.down, DOWNKEYS)) mapScrolling(objectsScrolling, "y", -this.speed, this.safetyMode);
+      if(isElemInArr(controlKeys.left, getDownedKeys())) mapScrolling(objectsScrolling, "x", this.speed, this.safetyMode);
+      if(isElemInArr(controlKeys.right, getDownedKeys())) mapScrolling(objectsScrolling, "x", -this.speed, this.safetyMode);
+      if(isElemInArr(controlKeys.up, getDownedKeys())) mapScrolling(objectsScrolling, "y", this.speed, this.safetyMode);
+      if(isElemInArr(controlKeys.down, getDownedKeys())) mapScrolling(objectsScrolling, "y", -this.speed, this.safetyMode);
     }
 
 

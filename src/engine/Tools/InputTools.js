@@ -1,14 +1,13 @@
-
 //-----------------------KEYBOARD LISTENER---------------------//
 
 document.addEventListener('keydown', keyListener);
 document.addEventListener('keyup', keyListener);
 
-var DOWNKEYS = [];
+var downedKeys = [];
 
 function keyListener(event){
     if(event.type == 'keydown'){
-        if(!isElemInArr(event.keyCode, DOWNKEYS)) 
+        if(!isElemInArr(event.keyCode, downedKeys)) 
             addKeyToDownKeys(event.keyCode)
     }
     else
@@ -17,11 +16,16 @@ function keyListener(event){
 
 
 function addKeyToDownKeys(key){
-    DOWNKEYS.push(key);
+    downedKeys.push(key);
 }
 
 function removeKeyFromDownKeys(key){
-    DOWNKEYS.splice(DOWNKEYS.indexOf(key), 1);
+    downedKeys.splice(downedKeys.indexOf(key), 1);
+}
+
+
+function getDownedKeys(){
+    return downedKeys
 }
 //^^^^^^^^^^^^^^^^^^^^^^^KEYBOARD LISTENER^^^^^^^^^^^^^^^^^^^^^^^//
 
