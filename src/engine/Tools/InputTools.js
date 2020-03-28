@@ -8,7 +8,7 @@ var DOWNKEYS = [];
 
 function keyListener(event){
     if(event.type == 'keydown'){
-        if(!isElemInArr(DOWNKEYS, event.keyCode)) 
+        if(!isElemInArr(event.keyCode, DOWNKEYS)) 
             addKeyToDownKeys(event.keyCode)
     }
     else
