@@ -6,20 +6,18 @@ document.addEventListener('keyup', keyListener);
 var downedKeys = [];
 
 function keyListener(event){
-    if(event.type == 'keydown'){
-        if(!isElemInArr(event.keyCode, downedKeys)) 
-            addKeyToDownKeys(event.keyCode)
-    }
-    else
-        removeKeyFromDownKeys(event.keyCode)
+    if(event.type == 'keydown' && !isElemInArr(event.keyCode, downedKeys))
+        addKeyToDownedKeys(event.keyCode)
+    else if(event.type == 'keyup')
+        removeKeyFromDownedKeys(event.keyCode)
 }
 
 
-function addKeyToDownKeys(key){
+function addKeyToDownedKeys(key){
     downedKeys.push(key);
 }
 
-function removeKeyFromDownKeys(key){
+function removeKeyFromDownedKeys(key){
     downedKeys.splice(downedKeys.indexOf(key), 1);
 }
 
@@ -37,7 +35,7 @@ document.addEventListener('mousedown', mouseDownListener);
 document.addEventListener('mouseup', mouseDownListener);
 document.addEventListener('mousemove', mouseMoveListener)
 
-//----MOUSECOORDS----
+//------------MOUSECOORDS------------
 var mouseX = 0;
 var mouseY = 0;
 
@@ -57,7 +55,7 @@ function getMouseY(){
     return mouseY
 }
 
-//-----MOUSEDOWN-----
+//-----------MOUSEDOWN--------------
 var mouseDown = false;
 
 function mouseDownListener(e){
