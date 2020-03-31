@@ -11,11 +11,11 @@ class Player extends ZelObject{
 
     this.spritesFile.src = "./src/game/Objects/Player/img/Sprites.png"
     this.animationMap = {
-      runLeft:   [[0,0,128,128], [128, 0, 256, 128], [256, 0, 384, 128]],
-      runRight:  ["./img/runRight/1.png","./img/runRight/2.png","./img/runRight/3.png"],
-      runTop:    ["./img/runRight/1.png","./img/runRight/2.png","./img/runRight/3.png"],
-      runBottom: ["./img/runRight/1.png","./img/runRight/2.png","./img/runRight/3.png"],
-      stay:      [[0,0,128,128], [128, 0, 256, 128], [256, 0, 384, 128]],
+      runLeft:   [[0,0,128,128], [128, 0, 128, 128], [256, 0, 128, 128], [384, 0, 128, 128]],
+      runRight:  [[0,0,128,128], [128, 0, 128, 128], [256, 0, 128, 128], [384, 0, 128, 128]], 
+      runTop:    [[0,0,128,128], [128, 0, 128, 128], [256, 0, 128, 128], [384, 0, 128, 128]], 
+      runBottom: [[0,0,128,128], [128, 0, 128, 128], [256, 0, 128, 128], [384, 0, 128, 128]],
+      stay:      [[0,0,128,128], [128, 0, 128, 128], [256, 0, 128, 128], [384, 0, 128, 128]],
     }
   }
 
