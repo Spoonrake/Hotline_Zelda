@@ -76,18 +76,10 @@ class Drawable extends Physical{
 
 
 
-  //TODO set the width and height in args
-  drawImageRotateble2(image = this.currentSprite){
-    screen.save();
-    screen.translate(this.x+PLAYER.width/2, this.y+PLAYER.height/2);
-    screen.rotate((PLAYER.beta * Math.PI)/180);
-    screen.drawImage(image, 0, 0, 128, 128, -this.width/2, -this.height/2, 80, 80);
-    screen.rotate(-PLAYER.beta * Math.PI/180);
-    screen.restore();
-  }
+
 
   //TODO set the width and height in args
-  drawImageRotateble(image = this.currentSprite){
+  drawImage(image = this.currentSprite){
     screen.drawImage(image, 0, 0, 128, 128, this.x,this.y, this.width,this.height);
   }
 

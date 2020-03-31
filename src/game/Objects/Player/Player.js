@@ -66,7 +66,7 @@ class Player extends ZelObject{
   draw(){
     // TODO: new name for Setters
     this.currentSpriteSourceSetter();
-    this.drawImageRotateble();
+    this.drawImage();
     this.spritesCounter();
   }
 
