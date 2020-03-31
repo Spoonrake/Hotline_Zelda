@@ -61,16 +61,6 @@ class Player extends ZelObject{
     this.setCurrentAnimationForSec(this.animationMap.runBottom);
   }
 
-
-// TODO: remove to Drawable?
-  draw(){
-    // TODO: new name for Setters
-    this.currentSpriteSourceSetter();
-    this.drawImage();
-    this.spritesCounter();
-  }
-
-
 }
 
 //^^^^^^CLASS PLAYER^^^^^^//

@@ -24,6 +24,9 @@ class Drawable extends Physical{
 
 
 
+
+
+
   setCurrentAnimationForSec(spriteGroup, seconds = 1){
     this.animationSwap(spriteGroup, seconds);
     this.framesFromStartAnimationTimer();
@@ -68,6 +71,19 @@ class Drawable extends Physical{
   }
 
 
+  
+
+
+
+
+
+
+  draw(){
+    // TODO: new name for Setters
+    this.currentSpriteSourceSetter();
+    this.drawImage();
+    this.spritesCounter();
+  }
 
   //// TODO: new name?
   currentSpriteSourceSetter(){
@@ -76,9 +92,6 @@ class Drawable extends Physical{
 
 
 
-
-
-  //TODO set the width and height in args
   drawImage(image = this.currentSprite){
     screen.drawImage(image, 0, 0, 128, 128, this.x,this.y, this.width,this.height);
   }
