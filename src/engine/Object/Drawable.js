@@ -3,8 +3,10 @@ class Drawable extends Physical{
 
   constructor(){
     super()
+    this.spritesFile = new Image()
+    this.spritesFile.src = "./src/engine/img/defaultSprite.png"
     this.animationMap={
-      default: ["./src/engine/img/defaultSprite.png"],
+      default: [[0, 0, 128, 128]],
     }
 
     this.animationSecTime;
@@ -18,8 +20,7 @@ class Drawable extends Physical{
     this.currentSpriteGroup = this.animationMap.default;
     this.spritePointer = 0;
 
-    this.currentSprite = new Image();
-    this.currentSprite.src;
+    this.currentSprite
   }
 
 
@@ -80,20 +81,20 @@ class Drawable extends Physical{
 
   draw(){
     // TODO: new name for Setters
-    this.currentSpriteSourceSetter();
+    this.currentSpriteSetter();
     this.drawImage();
     this.spritesCounter();
   }
 
   //// TODO: new name?
-  currentSpriteSourceSetter(){
-    this.currentSprite.src = this.currentSpriteGroup[this.spritePointer];
+  currentSpriteSetter(){
+    this.currentSprite = this.currentSpriteGroup[this.spritePointer];
   }
 
 
 
-  drawImage(image = this.currentSprite){
-    screen.drawImage(image, 0, 0, 128, 128, this.x,this.y, this.width,this.height);
+  drawImage(image = this.spritesFile){
+    screen.drawImage(image, this.currentSprite[0], this.currentSprite[1], this.currentSprite[2], this.currentSprite[3], this.x,this.y, this.width,this.height);
   }
 
 
