@@ -1,11 +1,11 @@
-  class Background{
-      x;
-      y;
-      backgroundImage = new Image();
-
+  class Background extends ZelObject{
       constructor(x, y, image){
+        super()
         this.x = x;
         this.y = y;
+        this.width = 1024;
+        this.height = 1024;
+        this.backgroundImage = new Image();
         this.backgroundImage.src = image;
       }
 
