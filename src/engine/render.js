@@ -1,6 +1,6 @@
 function render(){
   this.clearCanvas()
-  SCENE.draw()
+  SCENE.drawObjsOnScreen()
 }
 
 function clearCanvas(){
