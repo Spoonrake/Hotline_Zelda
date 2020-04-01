@@ -1,4 +1,3 @@
-//TODO make if smaller
 class Physical{
   constructor(){
     this.x;
@@ -10,6 +9,13 @@ class Physical{
 
 
 
+  hasCollisionWithPoint(x, y){
+    if ((this.x <= x) & (this.x >= (x - this.width)) & (this.y <= y) & (this.y >= (y - this.height)))
+      return true
+    else
+      return false
+ }
+
 
   hasCollisionWithClassOfObj(objClass){
     for(var i = 0; i < SCENE.objectsGroup.length; i++){
@@ -18,10 +24,6 @@ class Physical{
            return true
     }
   }
-
-
-
-
 
 
   hasCollisionWithObj(object){
