@@ -15,7 +15,7 @@ class Enemy extends ZelObject{
   }
 
   process(){
-    if(this.hasCollisionWithObj(PLAYER))
+    if(this.hasCollisionWithObj(player))
       this.swapToSprite("./img/enemyRed.jpg")
     else
       this.swapToSprite("./img/enemy.jpg")

@@ -1,8 +1,8 @@
 function gameLogic(){
   if (gameFlag == true){
-    PLAYER.move();
-    ENEMY.process();
-    CAMERA.focusOn(PLAYER);
+    player.move();
+    enemy.process();
+    CAMERA.focusOn(player);
   }
   else{gameOver();}
 

@@ -3,8 +3,8 @@ const FPS = 30;
 
 
 //   OBJECTS INITIALIZATION
-var PLAYER;
-var ENEMY;
+var player;
+var enemy;
 
 
 
