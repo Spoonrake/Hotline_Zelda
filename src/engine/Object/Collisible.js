@@ -8,13 +8,14 @@ class Physical{
 
 
 
-
+  //   GENERAL COLLISIONS
   hasCollisionWithPoint(x, y){
     if ((this.x <= x) & (this.x >= (x - this.width)) & (this.y <= y) & (this.y >= (y - this.height)))
       return true
     else
       return false
  }
+
 
 
   hasCollisionWithClassOfObj(objClass){
@@ -38,6 +39,8 @@ class Physical{
 
 
 
+
+  //   TOP COLLISIONS
   hasTopCollisionWithClassOfObj(objClass){
     for(var i = 0; i < SCENE.objectsGroup.length; i++){
       if(SCENE.objectsGroup[i] instanceof objClass)
@@ -55,6 +58,7 @@ class Physical{
 
 
 
+  //   DOWN COLLISIONS
   hasDownCollisionWithClassOfObj(objClass){
     for(var i = 0; i < SCENE.objectsGroup.length; i++){
       if(SCENE.objectsGroup[i] instanceof objClass)
@@ -72,6 +76,7 @@ class Physical{
 
 
 
+  //   RIGHT COLLISIONS
   hasRightCollisionWithClassOfObj(objClass){
     for(var i = 0; i < SCENE.objectsGroup.length; i++){
       if(SCENE.objectsGroup[i] instanceof objClass)
@@ -89,6 +94,7 @@ class Physical{
 
 
 
+  //  LEFT COLLISIONS
   hasLeftCollisionWithClassOfObj(objClass){
     for(var i = 0; i < SCENE.objectsGroup.length; i++){
       if(SCENE.objectsGroup[i] instanceof objClass)
