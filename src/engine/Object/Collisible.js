@@ -17,6 +17,13 @@ class Physical{
  }
 
 
+    hasCollisionWithField(x, y, width, height){
+    if ((this.x <= (x + width)) & (this.x >= (x - this.width)) & (this.y <= (y + width)) & (this.y >= (y - this.height)))
+      return true
+    else
+      return false
+    }
+
 
   hasCollisionWithClassOfObj(objClass){
     for(var i = 0; i < SCENE.objectsGroup.length; i++){
