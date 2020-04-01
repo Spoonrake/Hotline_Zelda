@@ -6,7 +6,7 @@
 	"Camera": "../engine/Camera.js",
 	"MacSroller": "../engine/MapScroller.js",
 
-	"Phisycal obj": "../engine/Object/Physical.js",
+	"Phisycal obj": "../engine/Object/Collisible.js",
 	"Drawable obj": "../engine/Object/Drawable.js",
 	"ZelObject": "../engine/Object/ZelObject.js",
 	"Scene": "../engine/Scene.js",
@@ -16,6 +16,7 @@
 	"Object_Background": "../game/Objects/Structs/Background.js",
 	
 	"Init": "../game/Init.js",
+    "Engine Init": "../engine/Engine Init.js",
 	"Logic": "../game/GameLogic.js",
 
 	"Test Level": "../game/Levels/LevelTest.js"
