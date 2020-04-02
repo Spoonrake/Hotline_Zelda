@@ -1,8 +1,12 @@
 function gameLogic(){
   if (gameFlag == true){
-    player.move();
+    if(isElemInArr(49, getDownedKeys()))
+      CAMERA.freeWalk()
+    else{
+      player.move();
+      CAMERA.focusOn(player);
+    }
     enemy.process();
-    CAMERA.focusOn(player);
   }
   else{gameOver();}
 
