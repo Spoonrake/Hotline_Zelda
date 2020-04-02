@@ -43,12 +43,11 @@ class Camera{
 
 
     goToCoord(x, y){
-      if(this.focus) objectsScrolling.push(this.focus);
       this.focus = undefined;
       this.mode = "goToCoord";
-      var deltaX = this.x - x; this.x = deltaX;
-      var deltaY = this.y - y; this.y = deltaY;
-      mapScrolling(objectsScrolling, 'x', deltaX, this.safetyMode);
-      mapScrolling(objectsScrolling, 'y', deltaY, this.safetyMode);
+      var deltaX = this.x - x; this.x = x;
+      var deltaY = this.y - y; this.y = y;
+      mapScrolling(SCENE.objectsGroup, 'x', deltaX, this.safetyMode);
+      mapScrolling(SCENE.objectsGroup, 'y', deltaY, this.safetyMode);
     }
   }
