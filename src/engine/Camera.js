@@ -17,7 +17,9 @@ class Camera{
         this.mode = "focusOn";
 
       this.deltaX = canvas.width/2 - obj.width/2- obj.x;
+      this.x += obj.x + obj.width/2
       this.deltaY = canvas.height/2 - obj.height/2 - obj.y;
+      this.y += obj.y + obj.height/2
       mapScrolling(SCENE.objectsGroup, "x", this.deltaX, false);
       mapScrolling(SCENE.objectsGroup, "y", this.deltaY, false);
 
@@ -32,22 +34,32 @@ class Camera{
       this.mode = "freeWalk";
 
       if(isElemInArr(controlKeys.left, getDownedKeys()))
-        mapScrolling(SCENE.objectsGroup, "x", this.speed, this.safetyMode)
+        this.goLeftFor(this.speed)
       if(isElemInArr(controlKeys.right, getDownedKeys()))
-        mapScrolling(SCENE.objectsGroup, "x", -this.speed, this.safetyMode);
+        this.goRightFor(-this.speed)
       if(isElemInArr(controlKeys.up, getDownedKeys()))
-        mapScrolling(SCENE.objectsGroup, "y", this.speed, this.safetyMode);
+        this.goUpFor(this.speed)
       if(isElemInArr(controlKeys.down, getDownedKeys()))
-        mapScrolling(SCENE.objectsGroup, "y", -this.speed, this.safetyMode);
+        this.goDownFor(-this.speed)
     }
 
+    goLeftFor(deltaX){
+      mapScrolling(SCENE.objectsGroup, "x", deltaX, this.safetyMode)
+      this.x -= this.speed
+    }
 
-    goToCoord(x, y){
-      this.focus = undefined;
-      this.mode = "goToCoord";
-      var deltaX = this.x - x; this.x = x;
-      var deltaY = this.y - y; this.y = y;
-      mapScrolling(SCENE.objectsGroup, 'x', deltaX, this.safetyMode);
-      mapScrolling(SCENE.objectsGroup, 'y', deltaY, this.safetyMode);
+    goRightFor(deltaX){
+      mapScrolling(SCENE.objectsGroup, "x", deltaX, this.safetyMode);
+      this.x += this.speed
+    }
+
+    goUpFor(deltaY){
+      mapScrolling(SCENE.objectsGroup, "y", deltaY, this.safetyMode);
+      this.y -= this.speed
+    }
+    
+    goDownFor(deltaY){
+      mapScrolling(SCENE.objectsGroup, "y", deltaY, this.safetyMode);
+      this.y += this.speed
     }
   }
