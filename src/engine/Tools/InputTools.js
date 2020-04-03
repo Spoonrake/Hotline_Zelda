@@ -1,9 +1,9 @@
 //-----------------------KEYBOARD LISTENER---------------------//
 
-document.addEventListener('keydown', keyListener);
-document.addEventListener('keyup', keyListener);
+document.addEventListener('keydown', keyListener)
+document.addEventListener('keyup', keyListener)
 
-var downedKeys = [];
+var downedKeys = []
 
 function keyListener(event){
     if(event.type == 'keydown' && !isElemInArr(event.keyCode, downedKeys))
@@ -14,11 +14,11 @@ function keyListener(event){
 
 
 function addKeyToDownedKeys(key){
-    downedKeys.push(key);
+    downedKeys.push(key)
 }
 
 function removeKeyFromDownedKeys(key){
-    downedKeys.splice(downedKeys.indexOf(key), 1);
+    downedKeys.splice(downedKeys.indexOf(key), 1)
 }
 
 
@@ -31,18 +31,18 @@ function getDownedKeys(){
 
 //-------------------------MOUSE LISTENER-----------------------//
 
-document.addEventListener('mousedown', mouseDownListener);
-document.addEventListener('mouseup', mouseDownListener);
+document.addEventListener('mousedown', mouseDownListener)
+document.addEventListener('mouseup', mouseDownListener)
 document.addEventListener('mousemove', mouseMoveListener)
 
 //------------MOUSECOORDS------------
-var mouseX = 0;
-var mouseY = 0;
+var mouseX = 0
+var mouseY = 0
 
 function mouseMoveListener(e){
     if(event.target == canvas){
         mouseX = event.clientX - event.target.offsetLeft
-        mouseY = event.clientY - event.target.offsetTop;
+        mouseY = event.clientY - event.target.offsetTop
     }
 }
 
@@ -56,7 +56,7 @@ function getMouseY(){
 }
 
 //-----------MOUSEDOWN--------------
-var mouseDown = false;
+var mouseDown = false
 
 function mouseDownListener(e){
     if(event.type == 'mousedown'){

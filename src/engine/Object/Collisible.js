@@ -1,9 +1,9 @@
 class Collisible{
     constructor(){
-        this.x;
-        this.y;
-        this.width;
-        this.height;
+        this.x
+        this.y
+        this.width
+        this.height
     }
 
 

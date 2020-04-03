@@ -1,22 +1,22 @@
 function gameLogic(){
-  if (gameFlag == true){
-    if(isElemInArr(49, getDownedKeys()))
-      CAMERA.freeWalk()
-    else{
-      player.move();
-      CAMERA.focusOn(player);
+    if (gameFlag == true){
+        if(isElemInArr(49, getDownedKeys()))
+            CAMERA.freeWalk()
+        else{
+            player.move()
+            CAMERA.focusOn(player)
+        }
+        enemy.process()
     }
-    enemy.process();
-  }
-  else{gameOver();}
-
+    else
+        gameOver()
 }
 
 
 function gameOver(){
-  screen.fillStyle = "#F0F0F0";
-  screen.font = "50px Verdana";
-  screen.fillText("Game Over", 280, 200);
+  screen.fillStyle = "#F0F0F0"
+  screen.font = "50px Verdana"
+  screen.fillText("Game Over", 280, 200)
 }
 
 

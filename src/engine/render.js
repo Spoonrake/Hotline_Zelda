@@ -1,8 +1,8 @@
 function render(){
-  this.clearCanvas()
-  SCENE.drawObjsOnScreen()
+    this.clearCanvas()
+    SCENE.drawObjsOnScreen()
 }
 
 function clearCanvas(){
-  screen.clearRect(0, 0, canvas.width, canvas.height)
+    screen.clearRect(0, 0, canvas.width, canvas.height)
 }

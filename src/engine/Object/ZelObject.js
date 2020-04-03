@@ -1,27 +1,27 @@
 class ZelObject extends Drawable{
-  constructor(){
-    super()
-  }
+    constructor(){
+        super()
+    }
 
 
+    //Get random X for object position on screen response object sidze
+    getRandXResponseSize(){
+        var maxX = this.getMaxX()
+        return getRandomIntForMax(maxX)
+    }
 
-  getRandXResponseSize(){
-    var maxX = this.getMaxX()
-    return getRandomIntForMax(maxX)
-  }
-
-  getMaxX(){
-    return canvas.width - this.width
-  }
+    getMaxX(){
+        return canvas.width - this.width
+    }
 
 
+    //Get random X for object position on screen response object sidz
+    getRandYResponseSize(){
+        var maxY = this.getMaxY()
+        return getRandomIntForMax(maxY)
+    }
 
-  getRandYResponseSize(){
-    var maxY = this.getMaxY()
-    return getRandomIntForMax(maxY)
-  }
-
-  getMaxY(){
-    return canvas.height - this.height
-  }
+    getMaxY(){
+        return canvas.height - this.height
+    }
 }
