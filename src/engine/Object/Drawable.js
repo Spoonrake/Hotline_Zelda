@@ -1,5 +1,4 @@
-
-class Drawable extends Physical{
+class Drawable extends Collisible{
 
   constructor(){
     super()
